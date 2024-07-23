@@ -96,7 +96,7 @@ module Massdriver
 
     no_tasks do
       def git_sha(repo, ref)
-        run("git ls-remote git@github.com:#{repo}.git #{ref} | tail -n1 | cut -f1", capture: true).strip
+        `git ls-remote git@github.com:#{repo}.git #{ref} | tail -n1 | cut -f1`.strip
       end
 
       def get_ecr_sha(repository, commit)
